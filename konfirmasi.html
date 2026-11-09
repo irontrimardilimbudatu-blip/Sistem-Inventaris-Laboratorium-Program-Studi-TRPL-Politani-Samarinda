@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surat pengajuan — PinjamLab</title>
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<div class="phone">
+
+  <div class="status-bar">
+    <span class="clock">09.41</span>
+    <div class="status-icons">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-3"/><path d="M9 20v-6"/><path d="M14 20v-9"/><path d="M19 20V4"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M12 20h.01"/></svg>
+      <svg class="battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="18" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><rect x="4" y="9" width="12" height="6" rx="1" fill="currentColor" stroke="none"/></svg>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <a class="back-btn" href="dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></a>
+    <div class="title-wrap">
+      <h1 style="font-size:24px;">Surat pengajuan</h1>
+      <p>Konfirmasi pengiriman</p>
+    </div>
+    <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.4 2.3c-.9.4-1.4 1-1.4 2"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></button>
+  </div>
+  <div class="content">
+
+    <div class="confirm-head">
+      <div class="confirm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="8.5 12.5 11 15 16 9"/></svg></div>
+      <div>
+        <div style="font-size:16px;font-weight:700;color:var(--heading);">Pengajuan berhasil dikirim</div>
+        <div style="font-size:12px;color:var(--muted);">Surat siap dicetak untuk verifikasi Prodi.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
+      <div class="card-row-between">
+        <span style="font-size:14px;font-weight:700;color:var(--heading);">Pratinjau surat</span>
+        <span style="font-size:10px;color:var(--muted);">PDF · 1 halaman</span>
+      </div>
+
+      <div class="letter">
+        <div class="letter-head">
+          <div>
+            <div class="org">PinjamLab</div>
+            <div class="dept">LABORATORIUM TEKNIK</div>
+          </div>
+          <span class="date">26 Oktober 2026</span>
+        </div>
+        <div class="letter-rule"></div>
+        <div class="letter-title">SURAT PENGAJUAN PEMINJAMAN</div>
+
+        <div style="display:flex;flex-direction:column;gap:3px;width:100%;">
+          <div class="letter-row"><span class="k">Peminjam</span><span class="v">Raka</span></div>
+          <div class="letter-row"><span class="k">Tanggal pinjam</span><span class="v">28 Okt 2026</span></div>
+          <div class="letter-row"><span class="k">Tanggal kembali</span><span class="v">30 Okt 2026 · 3 hari</span></div>
+          <div class="letter-row"><span class="k">Pengambilan</span><span class="v">Laboratorium Teknik</span></div>
+        </div>
+
+        <div style="width:100%;">
+          <div class="letter-sub">Keperluan peminjaman</div>
+          <p style="font-size:11px;color:var(--text);margin:3px 0 0;line-height:1.5;">Pembuatan rak mini untuk tugas Praktikum Konstruksi, kelompok 3.</p>
+        </div>
+
+        <div class="letter-table">
+          <div class="row"><span>Alat / bahan</span><span>Jumlah</span></div>
+          <div class="row"><span>Bor listrik nirkabel</span><span>1 unit</span></div>
+          <div class="row"><span>Papan kayu pinus</span><span>4 lembar</span></div>
+        </div>
+
+        <div class="sign-row">
+          <div class="sign-col">
+            <span class="who">Peminjam</span>
+            <div class="sign-space"></div>
+            <hr class="divider">
+            <span class="name">Raka</span>
+          </div>
+          <div class="sign-col">
+            <span class="who">Mengetahui, Prodi</span>
+            <div class="sign-space"></div>
+            <hr class="divider">
+            <span class="name">Nama &amp; tanda tangan</span>
+          </div>
+        </div>
+
+        <p class="letter-footnote">Berlaku setelah diverifikasi dan ditandatangani Prodi.</p>
+      </div>
+    </div>
+
+    <div class="info-banner align-top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <span>Silakan bawa surat ini ke Prodi untuk diverifikasi dan ditandatangani</span>
+    </div>
+  </div>
+  <div class="bottom-bar">
+    <button class="btn btn-primary" onclick="window.print()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><polyline points="7 10 12 15 17 10"/><path d="M5 21h14"/></svg> Unduh / Cetak PDF</button>
+  </div>
+
+
+  <div class="home-indicator"><span></span></div>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

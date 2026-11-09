@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Katalog — PinjamLab</title>
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<div class="phone">
+
+  <div class="status-bar">
+    <span class="clock">09.41</span>
+    <div class="status-icons">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-3"/><path d="M9 20v-6"/><path d="M14 20v-9"/><path d="M19 20V4"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M12 20h.01"/></svg>
+      <svg class="battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="18" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><rect x="4" y="9" width="12" height="6" rx="1" fill="currentColor" stroke="none"/></svg>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="title-wrap">
+      <h1>Katalog</h1>
+      <p>Temukan kebutuhan praktikmu</p>
+    </div>
+    <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><circle cx="9" cy="6" r="2"/><line x1="4" y1="12" x2="20" y2="12"/><circle cx="15" cy="12" r="2"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="7" cy="18" r="2"/></svg></button>
+  </div>
+  <div class="content" style="gap:14px;">
+
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Cari alat atau bahan...</span>
+    </div>
+
+    <div class="tab-row" data-tab-group>
+      <div class="tab active">Semua</div>
+      <div class="tab">Alat</div>
+      <div class="tab">Bahan</div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:9px;width:100%;">
+      <div class="card-row-between">
+        <span style="font-size:12px;font-weight:700;color:var(--heading);">Item tersedia</span>
+      </div>
+
+      <div class="card catalog-card">
+        <div class="item-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5 9-5z"/><path d="M3 8v9l9 5 9-5V8"/><path d="M12 13v9"/></svg></div>
+        <div class="item-info">
+          <span class="meta">ALT-014 · Alat</span>
+          <span class="name">Bor listrik nirkabel</span>
+          <div class="card-row-between">
+            <span class="avail">8 unit tersedia</span>
+            <button class="add-btn" data-add-item><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card catalog-card">
+        <div class="item-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5 9-5z"/><path d="M3 8v9l9 5 9-5V8"/><path d="M12 13v9"/></svg></div>
+        <div class="item-info">
+          <span class="meta">BHN-006 · Bahan</span>
+          <span class="name">Papan kayu pinus</span>
+          <div class="card-row-between">
+            <span class="avail">24 lembar tersedia</span>
+            <button class="add-btn" data-add-item><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:9px;width:100%;">
+      <div class="card-row-between">
+        <span style="font-size:12px;font-weight:700;color:var(--heading);">Hasil tidak ditemukan</span>
+        <span style="font-size:10px;color:var(--muted);">Contoh kondisi kosong</span>
+      </div>
+      <div class="card empty-state">
+        <div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8.5" y1="8.5" x2="13.5" y2="13.5"/><line x1="13.5" y1="8.5" x2="8.5" y2="13.5"/></svg></div>
+        <div>
+          <div class="title">&ldquo;Mikroskop&rdquo; belum tersedia</div>
+          <p class="desc">Coba kata kunci atau kategori lain.</p>
+          <button class="action">Hapus pencarian</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <span>Tiga contoh tampilan katalog, bukan status barang.</span>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a class="nav-item" href="dashboard.html">
+      <span class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9v11a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9"/></svg></span>
+      Beranda
+    </a>
+    <a class="nav-item active" href="katalog.html">
+      <span class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+      Katalog
+    </a>
+    <a class="nav-item" href="riwayat.html">
+      <span class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6a1 1 0 0 1 1 1v1H8V4a1 1 0 0 1 1-1z"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="13" y2="18"/></svg></span>
+      Riwayat
+    </a>
+  </nav>
+
+  <div class="home-indicator"><span></span></div>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

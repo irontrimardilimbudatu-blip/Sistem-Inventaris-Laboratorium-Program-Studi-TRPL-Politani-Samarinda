@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form pengajuan — PinjamLab</title>
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<div class="phone">
+
+  <div class="status-bar">
+    <span class="clock">09.41</span>
+    <div class="status-icons">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-3"/><path d="M9 20v-6"/><path d="M14 20v-9"/><path d="M19 20V4"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M12 20h.01"/></svg>
+      <svg class="battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="18" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><rect x="4" y="9" width="12" height="6" rx="1" fill="currentColor" stroke="none"/></svg>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <a class="back-btn" href="katalog.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></a>
+    <div class="title-wrap"><h1>Form pengajuan</h1></div>
+    <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.4 2.3c-.9.4-1.4 1-1.4 2"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></button>
+  </div>
+  <div class="content">
+
+    <div class="stage-row">
+      <div class="stage-dot">1</div>
+      <span class="stage-label">Isi pengajuan</span>
+      <div class="stage-line"></div>
+      <span class="stage-label inactive">2&nbsp; Verifikasi admin</span>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:12px;width:100%;">
+      <div class="section-title">
+        <h2>Item dipilih</h2>
+        <a href="scanner.html" class="link">Tambah item</a>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:14px;">
+        <div class="item-card">
+          <div class="item-thumb sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5 9-5z"/><path d="M3 8v9l9 5 9-5V8"/><path d="M12 13v9"/></svg></div>
+          <div class="item-info">
+            <span class="name" style="font-size:13px;">Bor listrik nirkabel</span>
+            <span style="font-size:10px;color:var(--primary);">8 unit tersedia</span>
+          </div>
+          <div class="stepper" data-stepper data-min="1" data-max="8">
+            <button data-step="minus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+            <span class="qty">1</span>
+            <button data-step="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          </div>
+        </div>
+        <hr class="divider">
+        <div class="item-card">
+          <div class="item-thumb sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5 9-5z"/><path d="M3 8v9l9 5 9-5V8"/><path d="M12 13v9"/></svg></div>
+          <div class="item-info">
+            <span class="name" style="font-size:13px;">Papan kayu pinus</span>
+            <span style="font-size:10px;color:var(--primary);">24 lembar tersedia</span>
+          </div>
+          <div class="stepper" data-stepper data-min="1" data-max="24">
+            <button data-step="minus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+            <span class="qty">4</span>
+            <button data-step="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
+      <h2 style="margin:0;font-size:16px;font-weight:700;color:var(--text);">Periode peminjaman</h2>
+      <div style="display:flex;gap:12px;width:100%;">
+        <div class="field" style="flex:1;min-width:0;width:auto;">
+          <label>Tanggal pinjam</label>
+          <div class="input"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="16" y1="3" x2="16" y2="7"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="3" y1="10" x2="21" y2="10"/></svg><input type="text" value="28 Okt 2026"></div>
+        </div>
+        <div class="field" style="flex:1;min-width:0;width:auto;">
+          <label>Tanggal kembali</label>
+          <div class="input"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="16" y1="3" x2="16" y2="7"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="3" y1="10" x2="21" y2="10"/></svg><input type="text" value="30 Okt 2026"></div>
+        </div>
+      </div>
+      <span style="font-size:10px;color:var(--muted);">Durasi 3 hari · Maksimal peminjaman 7 hari</span>
+    </div>
+
+    <div class="field">
+      <label>Keperluan</label>
+      <div class="textarea">
+        <textarea maxlength="250" data-char-count="#keperluan-count">Pembuatan rak mini untuk tugas Praktikum Konstruksi, kelompok 3.</textarea>
+        <span class="char-count" id="keperluan-count">75/250</span>
+      </div>
+    </div>
+
+    <div class="info-banner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <div>
+        <div class="title">Ambil di Laboratorium Teknik</div>
+        <div class="desc">Gedung B, lantai 1 · 08.00–16.00</div>
+      </div>
+    </div>
+
+    <div class="checkbox-row align-top">
+      <button type="button" class="checkbox" data-toggle-check><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></button>
+      <p>Saya bertanggung jawab atas barang dan bersedia mengembalikannya tepat waktu.</p>
+    </div>
+  </div>
+  <div class="bottom-bar">
+    <a href="konfirmasi.html" class="btn btn-primary">Kirim pengajuan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></a>
+  </div>
+
+
+  <div class="home-indicator"><span></span></div>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

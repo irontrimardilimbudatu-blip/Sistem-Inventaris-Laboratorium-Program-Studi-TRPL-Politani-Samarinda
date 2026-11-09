@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — PinjamLab</title>
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<div class="phone">
+
+  <div class="status-bar">
+    <span class="clock">09.41</span>
+    <div class="status-icons">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-3"/><path d="M9 20v-6"/><path d="M14 20v-9"/><path d="M19 20V4"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M12 20h.01"/></svg>
+      <svg class="battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="18" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><rect x="4" y="9" width="12" height="6" rx="1" fill="currentColor" stroke="none"/></svg>
+    </div>
+  </div>
+
+  <div class="content" style="gap:24px;">
+    <div class="brand-row">
+      <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></div>
+      <span class="brand-name">PinjamLab</span>
+      <span class="scope">LAB TEKNIK</span>
+    </div>
+
+    <div class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <span class="eyebrow">RUANG UNTUK BERKARYA</span>
+      <h2>Alat siap. Ide jalan.</h2>
+      <p class="sub">Pinjam kebutuhan praktik, tanpa ribet.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:6px;">
+      <h1 style="margin:0;font-size:24px;font-weight:700;color:var(--text);">Selamat datang kembali</h1>
+      <p style="margin:0;font-size:13px;color:var(--muted);">Masuk dengan akun kampus untuk mulai meminjam.</p>
+    </div>
+
+    <form style="display:flex;flex-direction:column;gap:16px;width:100%;" onsubmit="window.location.href='dashboard.html'; return false;">
+      <div class="field">
+        <label>Email kampus</label>
+        <div class="input">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          <input type="email" value="raka.pratama@mahasiswa.ac.id">
+        </div>
+      </div>
+      <div class="field">
+        <label>Kata sandi</label>
+        <div class="input" data-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="16" r="1.5"/></svg>
+          <span class="value" data-password-value>••••••••••••</span>
+          <button type="button" class="eye" data-toggle-password><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 8 10 8a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 8 10 8a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/></svg></button>
+        </div>
+      </div>
+      <div class="card-row-between">
+        <div class="checkbox-row">
+          <button type="button" class="checkbox" data-toggle-check><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></button>
+          <span>Ingat saya</span>
+        </div>
+        <span style="font-size:12px;font-weight:600;color:var(--primary);">Lupa kata sandi?</span>
+      </div>
+      <button type="submit" class="btn btn-primary">Masuk <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+    </form>
+
+    <div style="display:flex;gap:4px;justify-content:center;width:100%;font-size:12px;">
+      <span style="color:var(--muted);">Belum punya akses?</span>
+      <span style="color:var(--primary);font-weight:600;">Hubungi admin lab</span>
+    </div>
+
+    <div class="note-row" style="justify-content:center;width:100%;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+      <span>Akses aman untuk civitas akademika</span>
+    </div>
+  </div>
+
+
+  <div class="home-indicator"><span></span></div>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
