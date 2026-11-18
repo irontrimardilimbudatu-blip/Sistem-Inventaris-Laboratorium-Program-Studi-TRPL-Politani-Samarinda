@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — PinjamLab</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="phone">
+
+  <!-- Status Bar -->
+  <div class="status-bar">
+    <span class="clock">09.41</span>
+    <div class="status-icons">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-3"/><path d="M9 20v-6"/><path d="M14 20v-9"/><path d="M19 20V4"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M12 20h.01"/></svg>
+      <svg class="battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="18" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><rect x="4" y="9" width="12" height="6" rx="1" fill="currentColor" stroke="none"/></svg>
+    </div>
+  </div>
+
+  <!-- Judul Halaman -->
+  <div class="page-header">
+    <div class="title-wrap">
+      <h1 id="dashboard-greeting">Halo, Raka 👋</h1>
+      <p><span id="dashboard-date">Dashboard Peminjaman Lab</span> · <span id="dashboard-role">Mahasiswa</span></p>
+    </div>
+    <button class="icon-btn" id="notif-btn" aria-label="Notifikasi">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+    </button>
+  </div>
+
+  <!-- Ringkasan Beranda -->
+  <div class="content">
+
+    <!-- CTA Banner -->
+    <div class="cta-card">
+      <div class="cta-top">
+        <span>LABORATORIUM TEKNIK</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2l4 2.3v4.6L12 11.2 8 8.9V4.3L12 2z"/>
+          <path d="M12 6.6V2m0 4.6L8 8.9m4-2.3l4 2.3"/>
+          <path d="M7 10.7l4 2.3v4.6l-4 2.3-4-2.3v-4.6l4-2.3z"/>
+          <path d="M7 15.3v-4.6m0 4.6l-4 2.3m4-2.3l4 2.3"/>
+          <path d="M17 10.7l4 2.3v4.6l-4 2.3-4-2.3v-4.6l4-2.3z"/>
+          <path d="M17 15.3v-4.6m0 4.6l-4 2.3m4-2.3l4 2.3"/>
+        </svg>
+      </div>
+      <h2>Mau buat apa hari ini?</h2>
+      <p class="sub">Temukan alat dan bahan untuk ide besarmu.</p>
+      <a href="katalog.html" class="btn btn-light" style="margin-top:2px;">
+        Jelajahi katalog <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <!-- Stat Row -->
+    <div class="stat-row">
+      <div class="stat-card" id="stat-borrowed" title="Lihat alat yang sedang dipinjam">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2l4 2.3v4.6L12 11.2 8 8.9V4.3L12 2z"/>
+          <path d="M12 6.6V2m0 4.6L8 8.9m4-2.3l4 2.3"/>
+          <path d="M7 10.7l4 2.3v4.6l-4 2.3-4-2.3v-4.6l4-2.3z"/>
+          <path d="M7 15.3v-4.6m0 4.6l-4 2.3m4-2.3l4 2.3"/>
+          <path d="M17 10.7l4 2.3v4.6l-4 2.3-4-2.3v-4.6l4-2.3z"/>
+          <path d="M17 15.3v-4.6m0 4.6l-4 2.3m4-2.3l4 2.3"/>
+        </svg>
+        <div>
+          <div class="value" id="stat-borrowed-value">00</div>
+          <div class="label">Sedang dipinjam</div>
+        </div>
+      </div>
+      <div class="stat-card" id="stat-pending" title="Lihat pengajuan menunggu verifikasi">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 12"/></svg>
+        <div>
+          <div class="value" id="stat-pending-value">00</div>
+          <div class="label">Menunggu verifikasi</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
+      <div class="section-title">
+        <h2>Menu Utama</h2>
+        <button type="button" class="link" id="logout-btn">Keluar</button>
+      </div>
+      <div id="dashboard-menu" class="workflow-menu-grid"></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
+      <div class="section-title">
+        <h2>Alat yang sedang dipinjam</h2>
+        <a href="riwayat.html?status=dipinjam" class="link">Lihat riwayat</a>
+      </div>
+      <div id="dashboard-due-list" style="display:flex;flex-direction:column;gap:10px;width:100%;"></div>
+    </div>
+
+  </div>
+
+  <!-- Navigasi Utama -->
+  <nav class="bottom-nav">
+    <a class="nav-item active" href="dashboard.html">
+      <span class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9v11a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9"/></svg></span>
+      Beranda
+    </a>
+    <a class="nav-item" href="katalog.html">
+      <span class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+      Katalog
+    </a>
+    <a class="nav-item" href="riwayat.html">
+      <span class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6a1 1 0 0 1 1 1v1H8V4a1 1 0 0 1 1-1z"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="13" y2="18"/></svg></span>
+      Riwayat
+    </a>
+  </nav>
+
+  <!-- Navigasi Sistem -->
+  <div class="home-indicator"><span></span></div>
+</div>
+
+<script src="js/data-barang.js"></script>
+<script src="script.js"></script>
+<script src="js/workflow.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verifikasi — PinjamLab</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="phone">
+  <div class="status-bar"><span class="clock">09.41</span><div class="status-icons"></div></div>
+  <header class="page-header">
+    <a class="back-btn" href="dashboard.html" aria-label="Kembali ke dashboard">←</a>
+    <div class="title-wrap"><h1>Verifikasi pengajuan</h1><p>Persetujuan dan pencatatan pengambilan</p></div>
+  </header>
+  <main class="content">
+    <div class="info-banner"><div><div class="title">Alur Laboran</div><div class="desc">Periksa stok, setujui atau tolak dengan alasan. Setelah disetujui, catat saat barang diserahkan.</div></div></div>
+    <div class="section-title"><h2>Daftar pengajuan</h2><span id="verification-count" class="meta">0 pengajuan</span></div>
+    <div id="verification-list" class="workflow-list"></div>
+  </main>
+  <nav class="bottom-nav">
+    <a class="nav-item" href="dashboard.html">Beranda</a>
+    <a class="nav-item" href="katalog.html">Katalog</a>
+    <a class="nav-item" href="riwayat.html">Riwayat</a>
+  </nav>
+  <div class="home-indicator"><span></span></div>
+</div>
+<script src="js/data-barang.js"></script>
+<script src="script.js"></script>
+<script src="js/workflow.js"></script>
+</body>
+</html>

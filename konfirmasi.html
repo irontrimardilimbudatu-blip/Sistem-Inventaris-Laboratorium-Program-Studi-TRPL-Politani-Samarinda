@@ -27,7 +27,7 @@
     </a>
     <div class="title-wrap">
       <h1 style="font-size:22px;">Surat pengajuan</h1>
-      <p>Konfirmasi pengiriman</p>
+      <p>Status verifikasi permohonan</p>
     </div>
     <button class="icon-btn" id="confirm-help-btn" aria-label="Bantuan verifikasi">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.4 2.3c-.9.4-1.4 1-1.4 2"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
@@ -35,7 +35,7 @@
   </div>
 
   <!-- Konfirmasi dan Surat -->
-  <div class="content" style="gap:14px;">
+  <div class="content" id="confirmation-content" style="gap:14px;">
 
     <!-- Pengajuan Berhasil Header -->
     <div class="confirm-head">
@@ -43,8 +43,8 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="8.5 12.5 11 15 16 9"/></svg>
       </div>
       <div>
-        <div style="font-size:15px;font-weight:700;color:var(--primary-dark);">Pengajuan berhasil dikirim</div>
-        <div style="font-size:11.5px;color:var(--muted);margin-top:2px;">Surat siap dicetak untuk verifikasi Prodi.</div>
+        <div id="confirm-status" class="badge badge-menunggu">Menunggu</div>
+        <div id="confirm-state-note" style="font-size:11.5px;color:var(--muted);margin-top:2px;">Pengajuan menunggu verifikasi Laboran.</div>
       </div>
     </div>
 
@@ -62,30 +62,30 @@
             <div class="org">PinjamLab</div>
             <div class="dept">LABORATORIUM TEKNIK</div>
           </div>
-          <span class="date">26 Oktober 2026</span>
+          <span class="date" id="confirm-request-date">-</span>
         </div>
         <div class="letter-rule"></div>
-        <div class="letter-title">SURAT PENGAJUAN PEMINJAMAN</div>
+        <div class="letter-title">SURAT PENGAJUAN PEMINJAMAN <span id="confirm-request-id"></span></div>
 
         <!-- Detail Table -->
         <div style="display:flex;flex-direction:column;gap:4px;width:100%;">
-          <div class="letter-row"><span class="k">Peminjam</span><span class="v">Raka</span></div>
-          <div class="letter-row"><span class="k">Tanggal pinjam</span><span class="v">28 Okt 2026</span></div>
-          <div class="letter-row"><span class="k">Tanggal kembali</span><span class="v">30 Okt 2026 · 3 hari</span></div>
+          <div class="letter-row"><span class="k">Peminjam</span><span class="v" id="confirm-borrower">-</span></div>
+          <div class="letter-row"><span class="k">Email</span><span class="v" id="confirm-email">-</span></div>
+          <div class="letter-row"><span class="k">Tanggal pinjam</span><span class="v" id="confirm-period">-</span></div>
+          <div class="letter-row"><span class="k">Tanggal kembali</span><span class="v" id="confirm-return-date">-</span></div>
           <div class="letter-row"><span class="k">Pengambilan</span><span class="v">Laboratorium Teknik</span></div>
         </div>
 
         <!-- Keperluan -->
         <div style="width:100%;margin-top:2px;">
           <div class="letter-sub">Keperluan peminjaman</div>
-          <p style="font-size:11px;color:var(--heading);margin:3px 0 0;line-height:1.45;">Pembuatan rak mini untuk tugas Praktikum Konstruksi, kelompok 3.</p>
+          <p id="confirm-purpose" style="font-size:11px;color:var(--heading);margin:3px 0 0;line-height:1.45;">-</p>
         </div>
 
         <!-- Table Items -->
         <div class="letter-table">
           <div class="row"><span>Alat / bahan</span><span>Jumlah</span></div>
-          <div class="row"><span>Bor listrik nirkabel</span><span>1 unit</span></div>
-          <div class="row"><span>Papan kayu pinus</span><span>4 lembar</span></div>
+          <div id="confirm-items"></div>
         </div>
 
         <!-- Tanda Tangan -->
@@ -94,24 +94,24 @@
             <span class="who">Peminjam</span>
             <div class="sign-space"></div>
             <hr class="divider">
-            <span class="name">Raka</span>
+            <span class="name" id="confirm-signature-name">Peminjam</span>
           </div>
           <div class="sign-col">
-            <span class="who">Mengetahui, Prodi</span>
+            <span class="who">Diverifikasi Laboran</span>
             <div class="sign-space"></div>
             <hr class="divider">
             <span class="name">Nama &amp; tanda tangan</span>
           </div>
         </div>
 
-        <p class="letter-footnote">Berlaku setelah diverifikasi dan ditandatangani Prodi.</p>
+        <p class="letter-footnote">Pengambilan hanya dapat dilakukan setelah disetujui Laboran.</p>
       </div>
     </div>
 
     <!-- Info Banner Verifikasi -->
     <div class="info-banner align-top">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-      <span>Silakan bawa surat ini ke Prodi untuk diverifikasi dan ditandatangani</span>
+      <span>Tunggu verifikasi Laboran. Setelah disetujui, koordinasikan pengambilan barang.</span>
     </div>
 
   </div>
@@ -127,7 +127,8 @@
   <div class="home-indicator"><span></span></div>
 </div>
 
+<script src="js/data-barang.js"></script>
 <script src="script.js"></script>
-<script src="js/script.js"></script>
+<script src="js/workflow.js"></script>
 </body>
 </html>

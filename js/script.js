@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const loginForm = document.getElementById('login-form');
   if (loginForm) {
     loginForm.addEventListener('submit', (e) => {
+      if (window.PinjamlabWorkflow) return;
       e.preventDefault();
       const submitBtn = loginForm.querySelector('button[type="submit"]');
       const email = document.getElementById('email-input')?.value;
@@ -224,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 7. Dashboard Screen (dashboard.html)
   // ==========================================
   const notifBtn = document.getElementById('notif-btn');
-  if (notifBtn) {
+  if (notifBtn && !window.PinjamlabWorkflow) {
     notifBtn.addEventListener('click', () => {
       showBottomSheet({
         title: 'Notifikasi Peminjaman',
@@ -234,14 +235,14 @@ document.addEventListener('DOMContentLoaded', () => {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:var(--orange-text);flex-shrink:0;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               <div>
                 <div style="font-size:12px;font-weight:700;color:var(--orange-text);">Jatuh Tempo Besok!</div>
-                <div style="font-size:11px;color:var(--text);margin-top:2px;">Jangka sorong digital (PJM-261024-008) harus dikembalikan paling lambat besok pukul 16.00 WITA.</div>
+                <div style="font-size:11px;color:var(--text);margin-top:2px;">Raspberry Pi Pico (PJM-261024-008) harus dikembalikan paling lambat besok pukul 16.00 WITA.</div>
               </div>
             </div>
             <div style="background:var(--primary-50);border:1px solid var(--primary-100);padding:12px;border-radius:var(--radius-sm);display:flex;gap:10px;align-items:flex-start;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:var(--primary);flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
               <div>
                 <div style="font-size:12px;font-weight:700;color:var(--primary);">Pengajuan Dalam Antrean</div>
-                <div style="font-size:11px;color:var(--text);margin-top:2px;">Praktikum Konstruksi (PJM-261028-012) sedang diperiksa oleh admin lab.</div>
+                <div style="font-size:11px;color:var(--text);margin-top:2px;">Praktikum IoT (PJM-261028-012) sedang diperiksa oleh admin lab.</div>
               </div>
             </div>
           </div>
@@ -261,13 +262,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const statBorrowed = document.getElementById('stat-borrowed');
   if (statBorrowed) {
     statBorrowed.addEventListener('click', () => {
-      window.location.href = 'riwayat.html?tab=disetujui';
+      window.location.href = window.PinjamlabWorkflow
+        ? 'riwayat.html?status=dipinjam'
+        : 'riwayat.html?tab=disetujui';
     });
   }
   const statPending = document.getElementById('stat-pending');
   if (statPending) {
     statPending.addEventListener('click', () => {
-      window.location.href = 'riwayat.html?tab=menunggu';
+      window.location.href = 'riwayat.html?status=menunggu';
     });
   }
 
@@ -338,9 +341,11 @@ document.addEventListener('DOMContentLoaded', () => {
     items.forEach((card) => {
       const name = (card.querySelector('.name')?.textContent || '').toLowerCase();
       const meta = (card.querySelector('.meta')?.textContent || '').toLowerCase();
+      const stock = (card.querySelector('.volume')?.textContent || '').toLowerCase();
       const category = card.dataset.category || '';
 
-      const matchesQuery = !query || name.includes(query) || meta.includes(query);
+      const specification = (card.querySelector('.spec')?.textContent || '').toLowerCase();
+      const matchesQuery = !query || name.includes(query) || meta.includes(query) || stock.includes(query) || specification.includes(query);
       const matchesCategory = activeTab === 'semua' || category === activeTab;
 
       if (matchesQuery && matchesCategory) {
@@ -390,6 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // "+" Add-item button interaction
   document.querySelectorAll('[data-add-item]').forEach((btn) => {
     btn.addEventListener('click', (e) => {
+      if (window.PinjamlabWorkflow) return;
       e.stopPropagation();
       const card = btn.closest('.catalog-card') || btn.closest('.card');
       const itemName = card.querySelector('.name')?.textContent || 'Item';
@@ -478,6 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Submit validation
     formPengajuan.addEventListener('submit', (e) => {
+      if (window.PinjamlabWorkflow) return;
       e.preventDefault();
       const agreeBox = document.getElementById('agree-checkbox');
       if (agreeBox && agreeBox.classList.contains('unchecked')) {
@@ -533,11 +540,13 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'QR Code Ditemukan!',
         contentHtml: `
           <div style="display:flex;gap:12px;align-items:center;background:var(--primary-50);padding:14px;border-radius:var(--radius-md);border:1px solid var(--primary-100);">
-            <div class="item-thumb sm"><img src="assets/drill.png" alt="Bor listrik"></div>
+            <div class="item-thumb sm inventory-thumb" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+            </div>
             <div>
-              <div style="font-size:11px;color:var(--muted);">ALT-014 · Alat</div>
-              <div style="font-size:14px;font-weight:700;color:var(--primary-dark);">Bor listrik nirkabel</div>
-              <div style="font-size:11px;color:var(--primary);font-weight:600;margin-top:2px;">8 unit tersedia di Lab Teknik</div>
+              <div style="font-size:11px;color:var(--muted);">No. 1 · Alat</div>
+              <div style="font-size:14px;font-weight:700;color:var(--primary-dark);">ESP32 NodeMCU Development Board</div>
+              <div style="font-size:11px;color:var(--primary);font-weight:600;margin-top:2px;">Volume inventaris: 10 Unit</div>
             </div>
           </div>
         `,
@@ -593,15 +602,15 @@ document.addEventListener('DOMContentLoaded', () => {
           title: 'Masukkan Kode Alat Manual',
           contentHtml: `
             <div style="display:flex;flex-direction:column;gap:12px;">
-              <p style="font-size:13px;color:var(--muted);margin:0;">Ketik kode inventaris yang tertera pada label fisik alat atau bahan.</p>
+              <p style="font-size:13px;color:var(--muted);margin:0;">Masukkan nomor barang sesuai daftar inventaris.</p>
               <div class="input">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="10" x2="6" y2="10.01"/><line x1="10" y1="10" x2="10" y2="10.01"/><line x1="14" y1="10" x2="14" y2="10.01"/><line x1="18" y1="10" x2="18" y2="10.01"/><line x1="6" y1="14" x2="18" y2="14"/></svg>
-                <input type="text" id="manual-code-input" placeholder="Contoh: ALT-014 atau BHN-006" style="text-transform:uppercase;">
+                <input type="text" id="manual-code-input" placeholder="Contoh: 1 atau 44">
               </div>
               <div style="display:flex;gap:6px;align-items:center;">
                 <span style="font-size:11px;color:var(--muted);">Saran:</span>
-                <button type="button" class="badge badge-blue" style="cursor:pointer;" onclick="document.getElementById('manual-code-input').value='ALT-014'">ALT-014</button>
-                <button type="button" class="badge badge-blue" style="cursor:pointer;" onclick="document.getElementById('manual-code-input').value='BHN-006'">BHN-006</button>
+                <button type="button" class="badge badge-blue" style="cursor:pointer;" onclick="document.getElementById('manual-code-input').value='1'">No. 1</button>
+                <button type="button" class="badge badge-blue" style="cursor:pointer;" onclick="document.getElementById('manual-code-input').value='44'">No. 44</button>
               </div>
             </div>
           `,
@@ -610,8 +619,8 @@ document.addEventListener('DOMContentLoaded', () => {
               text: 'Gunakan Kode Ini',
               primary: true,
               onClick: () => {
-                const code = document.getElementById('manual-code-input')?.value || 'ALT-014';
-                showToast(`Kode ${code.toUpperCase()} ditambahkan ke pengajuan`, 'success');
+                const code = document.getElementById('manual-code-input')?.value || '1';
+                showToast(`Nomor barang ${code} ditambahkan ke pengajuan`, 'success');
                 setTimeout(() => {
                   window.location.href = 'form-pengajuan.html';
                 }, 400);
@@ -643,7 +652,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 13. Riwayat Screen (riwayat.html)
   // ==========================================
   const riwayatContainer = document.getElementById('riwayat-container');
-  if (riwayatContainer) {
+  if (riwayatContainer && !window.PinjamlabWorkflow) {
     const riwayatTabs = document.querySelectorAll('.tab-row [data-status]');
 
     const filterRiwayat = (status) => {

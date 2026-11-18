@@ -47,84 +47,30 @@
       <button type="button" class="tab" data-category="bahan">Bahan</button>
     </div>
 
-    <!-- 1. Kondisi Berisi: Item Tersedia -->
+    <!-- Daftar barang dari dokumen inventaris -->
     <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
       <div class="card-row-between">
-        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);">Item tersedia</span>
-        <span style="font-size:10px;color:var(--muted);">Contoh kondisi berisi</span>
+        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);">Daftar barang</span>
+        <span id="katalog-item-count" style="font-size:10px;color:var(--muted);">Memuat barang...</span>
       </div>
-
-      <div id="katalog-items-list" style="display:flex;flex-direction:column;gap:10px;width:100%;">
-        <!-- Item 1: Bor Listrik -->
-        <div class="card catalog-card" data-category="alat">
-          <div class="item-thumb"><img src="assets/drill.png" alt="Bor listrik nirkabel"></div>
-          <div class="item-info">
-            <span class="meta">ALT-014 · Alat</span>
-            <span class="name">Bor listrik nirkabel</span>
-            <div class="card-row-between">
-              <span class="avail">8 unit tersedia</span>
-              <button type="button" class="add-btn" data-add-item aria-label="Tambah Bor listrik nirkabel">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 2: Papan Kayu -->
-        <div class="card catalog-card" data-category="bahan">
-          <div class="item-thumb"><img src="assets/wood.png" alt="Papan kayu pinus"></div>
-          <div class="item-info">
-            <span class="meta">BHN-006 · Bahan</span>
-            <span class="name">Papan kayu pinus</span>
-            <div class="card-row-between">
-              <span class="avail">24 lembar tersedia</span>
-              <button type="button" class="add-btn" data-add-item aria-label="Tambah Papan kayu pinus">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div id="katalog-items-list" style="display:flex;flex-direction:column;gap:10px;width:100%;"></div>
+      <a href="form-pengajuan.html" id="continue-request" class="btn btn-primary is-disabled" aria-disabled="true">
+        Ajukan pilihan (<span id="draft-item-count">0 dipilih</span>)
+      </a>
     </div>
 
-    <!-- 2. Kondisi Kosong: Hasil Tidak Ditemukan -->
+    <!-- Tampilan kosong saat pencarian tidak cocok -->
     <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
-      <div class="card-row-between">
-        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);">Hasil tidak ditemukan</span>
-        <span style="font-size:10px;color:var(--muted);">Contoh kondisi kosong</span>
-      </div>
-      <div class="card empty-state" id="empty-state-card">
+      <div class="card empty-state" id="empty-state-card" style="display:none;">
         <div class="empty-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8.5" y1="8.5" x2="13.5" y2="13.5"/><line x1="13.5" y1="8.5" x2="8.5" y2="13.5"/></svg>
         </div>
         <div>
-          <div class="title" id="empty-query-label">&ldquo;Mikroskop&rdquo; belum tersedia</div>
+          <div class="title" id="empty-query-label">Barang tidak ditemukan</div>
           <p class="desc">Coba kata kunci atau kategori lain.</p>
           <button type="button" class="action" id="reset-search-btn">Hapus pencarian</button>
         </div>
       </div>
-    </div>
-
-    <!-- 3. Kondisi Memuat: Memuat Inventaris -->
-    <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
-      <div class="card-row-between">
-        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);">Memuat inventaris</span>
-        <span style="font-size:10px;color:var(--muted);">Contoh kondisi memuat</span>
-      </div>
-      <div class="card skeleton-card">
-        <div class="skeleton-thumb"></div>
-        <div class="skeleton-lines">
-          <div class="skeleton-line" style="width: 75%;"></div>
-          <div class="skeleton-line" style="width: 50%;"></div>
-          <div class="skeleton-line" style="width: 35%;"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Catatan -->
-    <div class="note-row">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-      <span>Tiga contoh tampilan katalog, bukan status barang.</span>
     </div>
 
   </div>
@@ -149,7 +95,8 @@
   <div class="home-indicator"><span></span></div>
 </div>
 
+<script src="js/data-barang.js"></script>
 <script src="script.js"></script>
-<script src="js/script.js"></script>
+<script src="js/workflow.js"></script>
 </body>
 </html>

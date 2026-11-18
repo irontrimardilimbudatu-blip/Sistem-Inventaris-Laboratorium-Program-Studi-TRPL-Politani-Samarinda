@@ -23,8 +23,8 @@
   <!-- Judul Halaman -->
   <div class="page-header">
     <div class="title-wrap">
-      <h1>Halo, Raka 👋</h1>
-      <p>Senin, 26 Oktober 2026</p>
+      <h1 id="dashboard-greeting">Halo, Raka 👋</h1>
+      <p><span id="dashboard-date">Dashboard Peminjaman Lab</span> · <span id="dashboard-role">Mahasiswa</span></p>
     </div>
     <button class="icon-btn" id="notif-btn" aria-label="Notifikasi">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
@@ -66,58 +66,33 @@
           <path d="M17 15.3v-4.6m0 4.6l-4 2.3m4-2.3l4 2.3"/>
         </svg>
         <div>
-          <div class="value">02</div>
+          <div class="value" id="stat-borrowed-value">00</div>
           <div class="label">Sedang dipinjam</div>
         </div>
       </div>
       <div class="stat-card" id="stat-pending" title="Lihat pengajuan menunggu verifikasi">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 12"/></svg>
         <div>
-          <div class="value">01</div>
+          <div class="value" id="stat-pending-value">00</div>
           <div class="label">Menunggu verifikasi</div>
         </div>
       </div>
     </div>
 
-    <!-- Section: Jangan lupa dikembalikan -->
     <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
       <div class="section-title">
-        <h2>Jangan lupa dikembalikan</h2>
-        <a href="riwayat.html?tab=disetujui" class="link">Lihat riwayat</a>
+        <h2>Menu Utama</h2>
+        <button type="button" class="link" id="logout-btn">Keluar</button>
       </div>
-      <a href="riwayat.html?tab=disetujui" class="card clickable" style="display:flex;flex-direction:column;gap:12px;">
-        <div class="card-row-between">
-          <span style="font-size:11px;color:var(--muted);font-weight:500;">PJM-261024-008</span>
-          <span class="badge badge-warning">Jatuh tempo besok</span>
-        </div>
-        <div class="item-card">
-          <div class="icon-circle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16 16 3l5 5-13 13-5-5z"/><path d="m14.5 6.5 2 2"/><path d="m11.5 9.5 2 2"/><path d="m8.5 12.5 2 2"/></svg>
-          </div>
-          <div class="item-info">
-            <span class="name">Jangka sorong digital</span>
-            <span class="meta">1 unit · 24–27 Okt 2026</span>
-          </div>
-          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </div>
-      </a>
+      <div id="dashboard-menu" class="workflow-menu-grid"></div>
     </div>
 
-    <!-- Section: Siap untuk dipinjam -->
     <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
       <div class="section-title">
-        <h2>Siap untuk dipinjam</h2>
-        <a href="katalog.html" class="link">Lihat semua</a>
+        <h2>Alat yang sedang dipinjam</h2>
+        <a href="riwayat.html?status=dipinjam" class="link">Lihat riwayat</a>
       </div>
-      <a href="form-pengajuan.html" class="card clickable catalog-card">
-        <div class="item-thumb"><img src="assets/drill.png" alt="Bor listrik nirkabel"></div>
-        <div class="item-info">
-          <span class="name">Bor listrik nirkabel</span>
-          <span class="meta">ALT-014 · Alat</span>
-          <span class="avail">8 unit tersedia</span>
-        </div>
-        <svg class="arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-      </a>
+      <div id="dashboard-due-list" style="display:flex;flex-direction:column;gap:10px;width:100%;"></div>
     </div>
 
   </div>
@@ -142,7 +117,8 @@
   <div class="home-indicator"><span></span></div>
 </div>
 
+<script src="js/data-barang.js"></script>
 <script src="script.js"></script>
-<script src="js/script.js"></script>
+<script src="js/workflow.js"></script>
 </body>
 </html>

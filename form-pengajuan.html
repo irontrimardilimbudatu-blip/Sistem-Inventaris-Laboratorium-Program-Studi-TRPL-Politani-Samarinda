@@ -41,44 +41,16 @@
       <div class="stage-dot">1</div>
       <span class="stage-label">Isi pengajuan</span>
       <div class="stage-line"></div>
-      <span class="stage-label inactive">2&nbsp; Verifikasi admin</span>
+      <span class="stage-label inactive">2&nbsp; Verifikasi Laboran</span>
     </div>
 
     <!-- Section: Item dipilih -->
     <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
       <div class="section-title">
         <h2>Item dipilih</h2>
-        <a href="scanner.html" class="link">Tambah item</a>
+        <a href="katalog.html" class="link">Tambah item</a>
       </div>
-      <div class="card" style="display:flex;flex-direction:column;gap:12px;">
-        <!-- Item 1 -->
-        <div class="item-card">
-          <div class="item-thumb sm"><img src="assets/drill.png" alt="Bor listrik nirkabel"></div>
-          <div class="item-info">
-            <span class="name">Bor listrik nirkabel</span>
-            <span class="avail">8 unit tersedia</span>
-          </div>
-          <div class="stepper" data-stepper data-min="1" data-max="8">
-            <button type="button" data-step="minus" aria-label="Kurangi jumlah"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-            <span class="qty">1</span>
-            <button type="button" data-step="plus" aria-label="Tambah jumlah"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          </div>
-        </div>
-        <hr class="divider">
-        <!-- Item 2 -->
-        <div class="item-card">
-          <div class="item-thumb sm"><img src="assets/wood.png" alt="Papan kayu pinus"></div>
-          <div class="item-info">
-            <span class="name">Papan kayu pinus</span>
-            <span class="avail">24 lembar tersedia</span>
-          </div>
-          <div class="stepper" data-stepper data-min="1" data-max="24">
-            <button type="button" data-step="minus" aria-label="Kurangi jumlah"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-            <span class="qty">4</span>
-            <button type="button" data-step="plus" aria-label="Tambah jumlah"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          </div>
-        </div>
-      </div>
+      <div id="form-items-list" class="card workflow-draft-list"></div>
     </div>
 
     <!-- Section: Periode peminjaman -->
@@ -89,26 +61,26 @@
           <label for="start-date">Tanggal pinjam</label>
           <div class="input">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            <input type="text" id="start-date" value="28 Okt 2026">
+            <input type="date" id="start-date" required>
           </div>
         </div>
         <div class="field" style="flex:1;min-width:0;">
           <label for="end-date">Tanggal kembali</label>
           <div class="input">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            <input type="text" id="end-date" value="30 Okt 2026">
+            <input type="date" id="end-date" required>
           </div>
         </div>
       </div>
-      <span id="duration-label" style="font-size:10.5px;color:var(--muted);">Durasi 3 hari · Maksimal peminjaman 7 hari</span>
+      <span id="duration-label" style="font-size:10.5px;color:var(--muted);">Maksimal peminjaman 7 hari.</span>
     </div>
 
     <!-- Section: Keperluan -->
     <div class="field">
       <label for="keperluan-text">Keperluan</label>
       <div class="textarea">
-        <textarea id="keperluan-text" maxlength="250" data-char-count="#keperluan-count">Pembuatan rak mini untuk tugas Praktikum Konstruksi, kelompok 3.</textarea>
-        <span class="char-count" id="keperluan-count">75/250</span>
+        <textarea id="keperluan-text" maxlength="250" required data-char-count="#keperluan-count" placeholder="Jelaskan keperluan penggunaan barang"></textarea>
+        <span class="char-count" id="keperluan-count">0/250</span>
       </div>
     </div>
 
@@ -123,15 +95,15 @@
 
     <!-- Persetujuan -->
     <div class="checkbox-row align-top">
-      <button type="button" class="checkbox" id="agree-checkbox" data-toggle-check aria-label="Persetujuan tanggung jawab">
+      <button type="button" class="checkbox unchecked" id="agree-checkbox" data-toggle-check aria-label="Persetujuan tanggung jawab">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
       </button>
-      <p>Saya bertanggung jawab atas barang dan bersedia mengembalikannya tepat waktu.</p>
+      <p>Saya bertanggung jawab atas alat, mengembalikannya sesuai waktu, dan memahami bahwa bahan yang digunakan akan mengurangi stok.</p>
     </div>
 
     <!-- Aksi Pengajuan -->
     <div class="bottom-bar" style="margin: auto -20px -20px; border-radius: 0;">
-      <button type="submit" class="btn btn-primary" id="submit-pengajuan-btn">
+      <button type="submit" class="btn btn-primary" id="submit-pengajuan-btn" disabled>
         Kirim pengajuan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       </button>
     </div>
@@ -142,7 +114,8 @@
   <div class="home-indicator"><span></span></div>
 </div>
 
+<script src="js/data-barang.js"></script>
 <script src="script.js"></script>
-<script src="js/script.js"></script>
+<script src="js/workflow.js"></script>
 </body>
 </html>

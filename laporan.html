@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laporan — PinjamLab</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="phone">
+  <div class="status-bar"><span class="clock">09.41</span><div class="status-icons"></div></div>
+  <header class="page-header">
+    <a class="back-btn" href="dashboard.html" aria-label="Kembali ke dashboard">←</a>
+    <div class="title-wrap"><h1>Laporan inventaris</h1><p>Ringkasan stok dan transaksi</p></div>
+  </header>
+  <main id="report-content" class="content">
+    <div id="report-summary" class="workflow-stat-grid"></div>
+    <div class="section-title"><h2>Stok barang</h2><button id="export-report-btn" class="btn btn-outline" type="button">Unduh CSV</button></div>
+    <div class="workflow-table-wrap">
+      <table class="workflow-table">
+        <thead><tr><th>Nomor</th><th>Nama barang</th><th>Kategori</th><th>Stok</th><th>Tersedia</th><th>Rusak</th></tr></thead>
+        <tbody id="report-inventory"></tbody>
+      </table>
+    </div>
+  </main>
+  <nav class="bottom-nav">
+    <a class="nav-item" href="dashboard.html">Beranda</a>
+    <a class="nav-item" href="katalog.html">Katalog</a>
+    <a class="nav-item" href="riwayat.html">Riwayat</a>
+  </nav>
+  <div class="home-indicator"><span></span></div>
+</div>
+<script src="js/data-barang.js"></script>
+<script src="script.js"></script>
+<script src="js/workflow.js"></script>
+</body>
+</html>

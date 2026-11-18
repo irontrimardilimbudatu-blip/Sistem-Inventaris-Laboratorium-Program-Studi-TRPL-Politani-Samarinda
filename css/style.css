@@ -497,7 +497,7 @@ img {
   padding: 18px 20px;
   color: #fff;
   background-color: var(--primary-dark);
-  background-image: url('assets/hero-workshop.png');
+  background-image: url('../assets/hero-workshop.png');
   background-size: cover;
   background-position: center top;
   box-shadow: var(--shadow-md);
@@ -697,10 +697,34 @@ img {
   font-size: 11px;
   color: var(--muted);
 }
+.item-info .spec {
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.catalog-card .item-info .name {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+.item-info .volume {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--primary);
+}
+.inventory-thumb svg {
+  width: 28px;
+  height: 28px;
+}
 .item-info .avail {
   font-size: 11px;
   font-weight: 600;
   color: var(--primary);
+}
+.item-card .item-info .name {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
 }
 .icon-circle {
   width: 44px;
@@ -1149,7 +1173,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('assets/scanner-workshop.png');
+  background-image: url('../assets/scanner-workshop.png');
   background-size: cover;
   background-position: center;
   box-shadow: var(--shadow-md);
@@ -1565,4 +1589,156 @@ img {
     margin: 0 auto !important;
     max-width: 680px !important;
   }
+}
+
+.badge-menunggu {
+  background: #fff7ed;
+  color: #c2410c;
+}
+.badge-disetujui,
+.badge-dipinjam {
+  background: var(--primary-50);
+  color: var(--primary-dark);
+}
+.badge-ditolak {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+.badge-selesai {
+  background: #ecfdf5;
+  color: #047857;
+}
+.workflow-menu-grid,
+.workflow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.workflow-menu-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+  color: var(--heading);
+  text-decoration: none;
+}
+.workflow-menu-card span,
+.workflow-summary span {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+.workflow-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+.workflow-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.workflow-note,
+.workflow-message {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.workflow-input,
+.workflow-select {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--heading);
+  background: var(--surface);
+  font: inherit;
+}
+textarea.workflow-input {
+  min-height: 72px;
+  resize: vertical;
+}
+.workflow-actions {
+  display: flex;
+  gap: 8px;
+}
+.workflow-actions > * {
+  flex: 1;
+}
+.workflow-condition {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(120px, 42%);
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+  color: var(--heading);
+}
+.workflow-draft-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+.workflow-draft-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 68px auto;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+.workflow-draft-row input {
+  width: 68px;
+  min-height: 40px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px;
+}
+.workflow-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+.workflow-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.workflow-stat strong {
+  color: var(--primary-dark);
+  font-size: 22px;
+}
+.workflow-stat span {
+  color: var(--muted);
+  font-size: 11px;
+}
+.workflow-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.workflow-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  text-align: left;
+}
+.workflow-table th,
+.workflow-table td {
+  padding: 9px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.workflow-table th {
+  color: var(--primary-dark);
+  background: var(--primary-50);
+}
+.is-disabled {
+  opacity: .55;
 }
